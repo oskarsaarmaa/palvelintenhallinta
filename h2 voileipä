@@ -3,6 +3,7 @@ Salasanaton kirjautuminen on automaatioon kätevä jos on kymmeniä käyttäjiä
 Opin, että /etc/sudoers.d/ on se paikka mihin sääntöjä voidaan tehdä. 
 Tehtävää tehdessä ajattelin, että onko salasanattomana kirjautuminen turvallista ja normaali tapa työelämässä googlailin asiaa ja sain selville, että jos sääntö on tarkasti määretty oikealle ryhmälle sitten se on turvallista.
 
+
 ## Antero - b)
 Tehtävässä tavoitteena oli tehdä käyttäjä, jolle pääsee kirjautumaan sisään ilman, että kone kysyy salasanaa kertaakaan. 
 Loin antero-käyttäjän ja lisäsin hänet sudoless-ryhmään. Sudoless-ryhmälle määritin säännön, jossa ryhmään kuuluvilla käyttäjillä ei tarvitse syöttää salasanaa sudo-komentoja käyttäessä. 
