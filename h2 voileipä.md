@@ -3,32 +3,106 @@ Salasanaton kirjautuminen on automaatioon kätevä jos on kymmeniä käyttäjiä
 Opin, että /etc/sudoers.d/ on se paikka mihin sääntöjä voidaan tehdä. 
 Tehtävää tehdessä ajattelin, että onko salasanattomana kirjautuminen turvallista ja normaali tapa työelämässä googlailin asiaa ja sain selville, että jos sääntö on tarkasti määretty oikealle ryhmälle sitten se on turvallista.
 
+Luon Ryhmän "sudoless" (sudo groupadd sudoless) ja lisään ryhmään "antero" käyttäjän (sudo adduser antero - sudo adduser antero sudoless). Tarkistan antero tilin ryhmät:
+
+<img width="712" height="35" alt="image" src="https://github.com/user-attachments/assets/d6ab0c71-4a51-4466-9fb3-89ecc611ba1f" />
+
+
+Luon sudoless tiedoston ja määritän sinne säännön jossa sudoless ryhmässä olevilla käyttäjillä ei tarvitse syöttää salasanaa kirjautumiseen / muutoksien tekemiseen salasanaa. 
+
+<img width="628" height="41" alt="image" src="https://github.com/user-attachments/assets/3570806d-0462-4de4-9e7d-bd4af9644b19" />
+
+Pääsin kirjautumaan ilman salasanapyyntöä:
+
+<img width="841" height="203" alt="image" src="https://github.com/user-attachments/assets/92987929-6407-4a10-8bdd-fa91dced4af3" />
+
+<img width="551" height="65" alt="image" src="https://github.com/user-attachments/assets/1b3b42b9-1f8f-48d7-a183-3b09611421b7" />
+
 
 ## Antero - b)
-Tehtävässä tavoitteena oli tehdä käyttäjä, jolle pääsee kirjautumaan sisään ilman, että kone kysyy salasanaa kertaakaan. 
-Loin antero-käyttäjän ja lisäsin hänet sudoless-ryhmään. Sudoless-ryhmälle määritin säännön, jossa ryhmään kuuluvilla käyttäjillä ei tarvitse syöttää salasanaa sudo-komentoja käyttäessä. 
-main.yml-tekstitiedostoon määritin tämän lisäksi authorized_key-tehtävän. Tällä komennolla kopioin (cat ~/.ssh/id_ed25519.pub) oman isäntäkoneeni julkisen SSH-avaimen suoraan anteron kotihakemistoon. Ilman  avainta orjakone kysyisi salasanaa jo sisäänkirjautumisvaiheessa.
-Nyt voin kirjautua/hallinnoida ympäristöä ilman salasanoja.
+Tehtävässä tavoitteena oli automoida sudon käyttö ilman salasanaa ansiblen avulla.
+
+Ansible hakemistopuu:
+
+<img width="446" height="211" alt="image" src="https://github.com/user-attachments/assets/b0a874a9-224c-4462-912e-4162a7333839" />
+
+Julkinen SSH avain:
+
+<img width="833" height="32" alt="image" src="https://github.com/user-attachments/assets/665f855a-237f-4518-b2be-2579179282b7" />
+
+
+Sääntö - Antero
+
+<img width="920" height="348" alt="image" src="https://github.com/user-attachments/assets/30ce8fd4-4880-41d1-aa66-85b654128ee3" />
+
+
+Site.yml konfigurointi: 
+
+<img width="438" height="98" alt="image" src="https://github.com/user-attachments/assets/86636e5a-c309-4bd0-ae0c-cebd8495864f" />
+
+Ansible kysyy become salasanaa kun ajaa -K (--ask-become-password) operaattorilla:
+
+<img width="1265" height="553" alt="image" src="https://github.com/user-attachments/assets/12fc73f7-eedb-4647-9547-6bebf35c77b8" />
+
+Salasanaton SSH kirjautuminen:
+
+<img width="1165" height="215" alt="image" src="https://github.com/user-attachments/assets/b7cc949f-769f-4020-b4a5-ae8f03e6265e" />
+
 
 ### Paketti - c)
 Asensin orjakoneelle kaksi hyödyllistä työkalua: git-versionhallinnan ja htop-prosessinhallinnan. 
 main.yml-tekstitiedostoon määritin nämä asennukset käyttämällä Ansiblen apt-moduulia. Asetin tehtävään update_cache: yes, mikä vastaa Linuxin sudo apt update -komentoa.
-Tässä kohdassa tuli vastaan mielenkiintoinen tilanne, kun Ansible antoi punaisen virheilmoituksen "Could not get lock". Ihmettelin tätä jonkin aikaa, pienen googlailun jälkeen sain selville että orjakoneella oli jokin taustapäivitys menossa samaan aikaan, mikä esti uudet asennukset.
-Pienen odottelun jälkeen ajoin playbookin uudestaan, ja oli palkitsevaa nähdä, miten molemmat ohjelmat asentuvat ongelmitta.
+
+<img width="402" height="114" alt="image" src="https://github.com/user-attachments/assets/4704616f-5f43-4460-b221-7d396cae223b" />
+
+Kokeilin löytyykö git ja htop ohjelmat ansiblen polusta:
+
+<img width="571" height="74" alt="image" src="https://github.com/user-attachments/assets/15f5ead8-da12-4b41-bc9a-729c4230d948" />
+
+
+
 
 #### Tiedosto - d)
 Loin tiedoston nimeltä leipä.txt antero-käyttäjän kotihakemistoon.
-main.yml-tekstitiedostoon määritin tämän käyttämällä copy-moduulia. Käytin siinä pystysuoraa viivaa (|), jonka avulla sain kirjoitettua tiedoston tekstisisällön suoraan playbookiin usealle eri riville.
+
+
 Asetin tiedoston oikeudet  0600. Symbolisessa muodossa tämä tarkoittaa -rw-------. Tämä tarkoittaa seuraavaa:
 Omistaja (antero): Saa lukea (r) ja muokata eli kirjoittaa (w) tiedostoa.
 Omistava ryhmä ja muut: Heillä ei ole mitään oikeuksia tiedostoon.
-Testasin tiedoston olemassaolon ja oikeudet orjakoneella ls -l -komennolla, ja tiedostot löytyivät!
+
+<img width="596" height="60" alt="image" src="https://github.com/user-attachments/assets/38890fcb-de0d-4f1d-bc07-813e36fce0dc" />
+
+main.yml:
+
+<img width="438" height="228" alt="image" src="https://github.com/user-attachments/assets/823c13b5-0f29-4b30-ae83-f0cb5c11247a" />
+
+Leipä.txt:
+
+<img width="494" height="95" alt="image" src="https://github.com/user-attachments/assets/b9333df8-6fdd-44c3-8b0d-b1277430e8e1" />
+
 
 ##### Debug moduuli ja dynaamiset muuttujat - e)
 Valtsin  työkaluksi debug-moduulin ja Ansiblen automaattisesti keräämät faktat kyseisestä playbookista. main.yml-tekstitiedostoon määritin tehtävän, joka tulostaa ruudulle orjakoneen käyttöjärjestelmän ja IP-osoitteen käyttämällä muuttujia. 
 Tämä oli mielestäni siistiä, sillä se osoittaa, miten Ansible "tuntee" hallitsemansa koneet ilman, että minun tarvitsee syöttää tietoja käsin.
 
+main.yml:
+
+<img width="1049" height="55" alt="image" src="https://github.com/user-attachments/assets/668f4971-c71d-4263-935d-9d3f2e1c6c09" />
+
+Testasin pyörittämällä playbookin:
+
+<img width="1257" height="157" alt="image" src="https://github.com/user-attachments/assets/41a3e611-cd31-4471-8098-be7b402ef6a4" />
+
+
   
 ###### Lähteet
 
 Karvinen 2026: Palvelinten hallinta https://terokarvinen.com/palvelinten-hallinta/
+
+Karvinen 2026: Sudo without password https://terokarvinen.com/passwordless-sudo/
+
+Karvinen 2026: Passwordless Sudo with Ansible https://terokarvinen.com/passwordless-sudo-with-ansible/
+
+Ansible Community Documentation 2026: https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_vars_facts.html
+
+Ansible Community Documentation 2026: https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/debug_module.html
