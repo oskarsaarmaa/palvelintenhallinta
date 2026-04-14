@@ -95,12 +95,6 @@ Lopputulos:
 Varmistin automaation onnistumisen kirjautumalla sisään antero-käyttäjänä ja muokkaamalla index.html-tiedostoa. Muutos päivittyi selaimelle, muutoksen yhteydessä kone ei pyytänyt salasanaa.
 
 
-##### d) Bonus - Osiris-T
-Asensin puhtaan Debian 13 distron, ja suoritin peruskonffauksen.
-
-<img width="930" height="83" alt="image" src="https://github.com/user-attachments/assets/cce5260f-c4ba-4f80-a73d-c91d28c0e684" />
-
-
 
 ##### Lähteet:
 
@@ -110,6 +104,4 @@ Karvinen 2026 Apache installed with Ansible: https://terokarvinen.com/apache-ans
 
 Ansible Community Documentation 2026: https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_handlers.html
 
-Häkämies, Saario, Mukkula 2026: https://github.com/oskarihakamies/IDS-project
 
-Häkämies etal 2026: https://github.com/oskarihakamies/IDS-project/blob/main/How-To-Install.md
