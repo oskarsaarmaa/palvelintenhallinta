@@ -122,4 +122,6 @@ Karvinen 2026 Apache installed with Ansible: https://terokarvinen.com/apache-ans
 
 Ansible Community Documentation 2026: https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_handlers.html
 
+https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
+
 
