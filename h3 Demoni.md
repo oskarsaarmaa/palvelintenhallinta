@@ -9,7 +9,7 @@ Milloin handler oikeasti käynnistyy ja miten voin testata sen?
 service-moduulilla hallitaan palveluita (name, state, enabled); voidaan käynnistää, pysäyttää ja määrittää automaattinen käynnistys.
 Mikä on oikea palvelun nimi (esim. apache2 vs httpd) omassa järjestelmässäni?
 
-MODULE (johdanto): service-moduulia käytetään palveluiden hallintaan (käynnistys, pysäytys, uudelleenkäynnistys) eri järjestelmissä kuten systemd; se tarjoaa yhtenäisen tavan hallita palveluita.
+service-moduulia käytetään palveluiden hallintaan (käynnistys, pysäytys, uudelleenkäynnistys) eri järjestelmissä kuten systemd; se tarjoaa yhtenäisen tavan hallita palveluita.
 
 enabled: määrittää, käynnistyykö palvelu automaattisesti järjestelmän käynnistyessä (true/false).
 name: palvelun nimi, jota hallitaan (esim. apache2 tai httpd).
