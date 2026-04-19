@@ -22,7 +22,7 @@
     joita vain murto-osa käyttäjistä ikinä tarvitsee, vai onko tämä välttämätön ammattikäytössä?
 
 
-## a) Räpylä
+# a) Räpylä
 Sammutin Apache:n joka oli pyörimässä portilla 80 jota haluan käyttää porttia Caddy palvelulle. 
 
 <img width="567" height="24" alt="image" src="https://github.com/user-attachments/assets/bcc61b5c-8071-446c-9431-f2ffcca46445" />
@@ -53,7 +53,7 @@ Loin ***** tiedoston. Määritin säännöt, säänöt saa aikaan seuraavan tark
 
 <img width="1268" height="363" alt="image" src="https://github.com/user-attachments/assets/743a5327-00bd-4a6f-8f66-9e6e2aa1b560" />
 
-#### c) Asetus
+#  c) Asetus
 Muutin asetustiedoston konfiguraatiota hallintakoneella ja varmistin, että muutokset siirtyvät automaattisesti palveluun.
 
 <img width="607" height="289" alt="image" src="https://github.com/user-attachments/assets/4da074c5-c698-49a3-a594-6ab7b63e78fa" />
@@ -80,15 +80,96 @@ Varmistin asetusten voimaantulon, terminaalissa ja selaimessa:
 <img width="387" height="117" alt="image" src="https://github.com/user-attachments/assets/fc9b5d05-e01c-44a9-b10a-d24ccd3e6b64" />
 
 
-##### d) Paikka remonttiin
+
+# d) Paikka remonttiin
 Poistin koko Caddyn asetuskansion. Testasin tuhon lataamalla localhost sivun, odotin "Connection refused" virheilmoitusta kun latastin sivun.
-Sivu kuitenki latasti ja toimi ihan normaalisti, otin selvää ja Caddy:n muistoon oli säilinyt asetuskansio.
+Sivu kuitenki latasti ja toimi ihan normaalisti, otin selvää ja Caddy:n muistoon oli säilinyt asetuskansio. 
 
 <img width="523" height="34" alt="image" src="https://github.com/user-attachments/assets/c7d6af9d-42c3-46a5-bf85-849692f191a0" />
 
 <img width="725" height="39" alt="image" src="https://github.com/user-attachments/assets/23105154-ed4b-400d-916e-69ef3910f4e1" />
 
 <img width="444" height="127" alt="image" src="https://github.com/user-attachments/assets/c0a21f74-6bb7-4c2a-bda3-b7a58446e7d2" />
+
+Haluan osoittaa, että järjestelmä on rikki ja korjaan sen lopulta ansiblella. Ajattelin "korjata" tilanteen suortitamalla systemctl reload caddy komennon, 
+mutta en pysty suorittamaan sitä koska olen poistanut caddy:n asetustiedostot:
+
+<img width="1230" height="135" alt="image" src="https://github.com/user-attachments/assets/737fcb96-b7aa-40d2-8f2f-ccbe8dd8a735" />
+
+Muokkaan playbook.yml tiedostoa lisämällä siihen tehtävän jossa ansible tarkistaa onko Caddyfile tiedosto ja kansiot olemassa (jos vadittuja kansioita / tiedostoja ei löydy ansible luo ne uusiksi):
+
+<img width="547" height="101" alt="image" src="https://github.com/user-attachments/assets/99fc2c19-15b2-4ddb-848d-d3a8f2f60173" />
+
+Ajan ansible-playbookin korjataaksen rikkomani tiedostot / kansiot:
+
+Ensimmäinen ajo:
+
+<img width="1228" height="556" alt="image" src="https://github.com/user-attachments/assets/1175d62d-4601-47ad-802d-09495618e966" />
+
+Toinen ajo:
+
+<img width="1256" height="499" alt="image" src="https://github.com/user-attachments/assets/d50a58fa-1dae-4c55-b2af-32dee4e97d3e" />
+
+Ansible loi caddy kansion ja Caddyfile tekstitiedoston uudelleen. Ymnpäristö on nyt korjattu.
+
+<img width="409" height="69" alt="image" src="https://github.com/user-attachments/assets/f1ed9cdb-460c-4fd1-bddf-1e3f523f7570" />
+
+<img width="708" height="40" alt="image" src="https://github.com/user-attachments/assets/176c013f-0126-453d-a621-2f86c4245ee5" />
+
+
+
+# e) Idempotentti 
+Idempotenssi tarkoittaa sitä, että voin ajaa saman komennon uudelleen ja uudelleen ilman, että järjestelmän tila muuttuu, jos se on jo halutussa tilassa. 
+
+Näyttää, että muutoksia tehtiin, jotta päästiin tavoitetilaan.
+
+<img width="1228" height="556" alt="image" src="https://github.com/user-attachments/assets/1175d62d-4601-47ad-802d-09495618e966" />
+
+
+
+Näyttää, että toisella ajolla muutoksia ei enää tarvittu.
+
+<img width="1260" height="455" alt="image" src="https://github.com/user-attachments/assets/83d071c4-6dfb-4016-ab9d-fb9a4a052f8b" />
+
+Tämä tarkoittaa että koodi on "julistavaa" (declarative): se kuvaa lopputilan, ja Ansible varmistaa sen tehokkaasti ilman turhia toimenpiteitä.
+
+
+
+### Lähteet
+
+Karvinen 2026: Palvelinten hallinta https://terokarvinen.com/palvelinten-hallinta/
+
+Conmfiguration Management of Distributed systems over Unrelaiable and Hostile Networks 2024: 
+
+https://westminsterresearch.westminster.ac.uk/item/w7vvz/configuration-management-of-distributed-systems-over-unreliable-and-hostile-networks
+
+Caddy Server Documentation 2026: https://caddyserver.com/docs/install#debian-ubuntu-raspbian
+
+Caddy Ansible 2023: https://github.com/nvjacobo/caddy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
