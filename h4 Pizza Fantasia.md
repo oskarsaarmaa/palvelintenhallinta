@@ -139,7 +139,7 @@ Tämä tarkoittaa että koodi on "julistavaa" (declarative): se kuvaa lopputilan
 
 Karvinen 2026: Palvelinten hallinta https://terokarvinen.com/palvelinten-hallinta/
 
-Conmfiguration Management of Distributed systems over Unrelaiable and Hostile Networks 2024: 
+Configuration Management of Distributed systems over Unrelaiable and Hostile Networks 2024: 
 
 https://westminsterresearch.westminster.ac.uk/item/w7vvz/configuration-management-of-distributed-systems-over-unreliable-and-hostile-networks
 
