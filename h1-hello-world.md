@@ -1,3 +1,5 @@
+# x)
+
 # h1 - SSH public key - Login without password
 Linux koneen asennus, päivitys ja peruskonffaus. Ei mitään ongelmia tai mitään poikkeavaa. OpenSSH:n asennus ja testaus. SSH avaimen generointi, pääsin kirjautumaan SSH ilman salasanaa. 
 <img width="955" height="118" alt="image" src="https://github.com/user-attachments/assets/7b70d2f2-de73-42f3-8c59-382223b9382c" />
