@@ -111,15 +111,40 @@ Komento palautti tiedostot viimeisimpään tallennettuun tilaan. Status:
 
 #### 1. Git asennus Windows:
 * Lataa Git 64-bit osoitteesta: https://git-scm.com/install/windows
-* Asennus vaiheessa voit edetä painamalla "Next" oletusasetuksilla. Suosittelen valita "Git Bash" asetuksen mikäli olet edistyneempi käyttäjä, asetus tuo Linux tyylisen komentorivin Windowsiin. HUOM! Valitse teksti editor, jota osat käyttää oletuksena Git käyttää Vim voit valita esim. Notepad++
-
-#### 2. Käyttöönotto
+* Asennus vaiheessa voit edetä painamalla "Next" oletusasetuksilla. Suosittelen valita "Git Bash" asetuksen mikäli olet edistyneempi käyttäjä, asetus tuo Linux tyylisen komentorivin Windowsiin (Käytän tätä). HUOM! Valitse teksti editor, jota osat käyttää oletuksena Git käyttää Vim voit valita esim. Notepad++
 * Avaa Git sovellus Windows hakukentästä
 
-#### 3. Varaston kloonaus
-* Git kloonaus onnistuu github linkin avulla, jonka löytää "Code" kohdan valikosta.
+#### 2. Varaston kloonaus
+Hae projektin osoite GitHubista Code-painikkeen alta. Voit käyttää HTTPS-linkkiä.
+* Komento: git clone {osoite}
+* Mitä tapahtuu: Git lataa koko projektin pilvestä omalle koneellesi.
   <img width="404" height="329" alt="image" src="https://github.com/user-attachments/assets/7dab8630-6b05-4037-9efd-9218c2d63045" />
-* Github linkin kanssa voit kloonata varasaton komennolla: git clone (github osoite)
+
+#### 3. Navigointi
+Kloonaamisen jälkeen siirry projektikansioon ja tarkista, mitä se sisältää.
+* cd {tiedoston nimi}
+* ls [listaa kansion sisällön]
+  <img width="261" height="94" alt="image" src="https://github.com/user-attachments/assets/094c0e8a-8325-4094-be71-14ec0e610251" />
+  
+#### 4. Muutosten tekemienen 
+Kun olet muokannut tiedostoja (esim. Notepadilla tai Vimillä), ne on lisättävä "jonoon" eli indeksiin.
+* Komento: git add --all
+* Tulos: Git huomioi kaikki muutokset: uudet tiedostot, muokkaukset ja poistot koko projektin laajuisesti.
+  <img width="427" height="40" alt="image" src="https://github.com/user-attachments/assets/b9d5da21-303d-4762-ab0e-848a49d123fc" />
+  
+#### 5. Paikallinen tallennus 
+Kun muutokset on lisätty indeksiin, ne lukitaan pysyväksi versioksi koneesi muistiin.
+* Komento: git commit
+* Git näyttää sinulle tekemäsi muutokset kuittaa ne tallentamalla ja poistumalla tekstieditorista.
+* Kannattaa kirjoittaa lyhyt kuvaus siitä, mitä muutit.
+
+#### 6. Muutosten siirto pilveen
+Lopuksi paikalliset tallennukset lähetetään takaisin GitHubiin.
+* Komento: git push
+* Windowsilla Git avaa tässä kohtaa selaimen kirjautumista varten, kirjaudu GitHub tunnuksilla.
+* Kirjautumisen jälkeen git ilmoittaa terminaaliin, että siirto on onnistunut (mikäli siirto meni läpi).  
+  <img width="446" height="159" alt="image" src="https://github.com/user-attachments/assets/3f947adf-6ff8-4e0a-ab9e-6b4de59234e4" />
+
 
 
 ## Lähteet: 
