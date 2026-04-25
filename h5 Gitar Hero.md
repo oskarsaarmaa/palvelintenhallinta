@@ -1,4 +1,4 @@
-# x)
+<img width="592" height="457" alt="image" src="https://github.com/user-attachments/assets/d0246e43-bb9c-4e58-b6b0-71cc2443e6a0" /># x)
 ### Git
 
 * Git tallentaa tiedostot tilannekuvina (snapshots). Jos tiedosto ei muutu, Git linkittää aiempaan versioon sen sijaan.
@@ -109,6 +109,17 @@ Komento palautti tiedostot viimeisimpään tallennettuun tilaan. Status:
 
 ## g) Se toinen järjestelmä: Windows
 
+#### 1. Git asennus Windows:
+* Lataa Git 64-bit osoitteesta: https://git-scm.com/install/windows
+* Asennus vaiheessa voit edetä painamalla "Next" oletusasetuksilla. Suosittelen valita "Git Bash" asetuksen mikäli olet edistyneempi käyttäjä, asetus tuo Linux tyylisen komentorivin Windowsiin. HUOM! Valitse teksti editor, jota osat käyttää oletuksena Git käyttää Vim voit valita esim. Notepad++
+
+#### 2. Käyttöönotto
+* Avaa Git sovellus Windows hakukentästä
+
+#### 3. Varaston kloonaus
+* Git kloonaus onnistuu github linkin avulla, jonka löytää "Code" kohdan valikosta.
+  <img width="404" height="329" alt="image" src="https://github.com/user-attachments/assets/7dab8630-6b05-4037-9efd-9218c2d63045" />
+* Github linkin kanssa voit kloonata varasaton komennolla: git clone (github osoite)
 
 
 ## Lähteet: 
@@ -122,5 +133,10 @@ Git 2026: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 Git book 2014: https://git-scm.com/book/en/v2
 
 Git komennot (add) 2026: https://git-scm.com/docs/git-add
+
 Git komennot (git: commit, pull ja push) 2026: https://git-scm.com/docs/git
+
+Git Windows 2026: https://git-scm.com/install/windows
+
+
 
