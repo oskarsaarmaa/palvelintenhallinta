@@ -145,6 +145,8 @@ Lopuksi paikalliset tallennukset lähetetään takaisin GitHubiin.
 * Kirjautumisen jälkeen git ilmoittaa terminaaliin, että siirto on onnistunut (mikäli siirto meni läpi).  
   <img width="446" height="159" alt="image" src="https://github.com/user-attachments/assets/3f947adf-6ff8-4e0a-ab9e-6b4de59234e4" />
 
+## h) Varaston oikeuksien jakaminen
+
 
 
 ## Lähteet: 
