@@ -1,4 +1,3 @@
-<img width="592" height="457" alt="image" src="https://github.com/user-attachments/assets/d0246e43-bb9c-4e58-b6b0-71cc2443e6a0" /># x)
 ### Git
 
 * Git tallentaa tiedostot tilannekuvina (snapshots). Jos tiedosto ei muutu, Git linkittää aiempaan versioon sen sijaan.
