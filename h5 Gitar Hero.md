@@ -1,3 +1,4 @@
+## x)
 ### Git
 
 * Git tallentaa tiedostot tilannekuvina (snapshots). Jos tiedosto ei muutu, Git linkittää aiempaan versioon sen sijaan.
