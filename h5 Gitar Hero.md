@@ -76,12 +76,44 @@ Komento palautti tiedostot viimeisimpään tallennettuun tilaan. Status:
 <img width="895" height="612" alt="image" src="https://github.com/user-attachments/assets/4d7f3b09-eb1e-4d33-b3d3-b759655f6693" />
 
 
+## e) Gitanbile
+
+#### Alustin kansion Git-varastoksi. Kuten tulosteesta näkyy, Git loi tyhjän varaston ansible kansiooni.
+
+<img width="817" height="228" alt="image" src="https://github.com/user-attachments/assets/30645533-b05d-4ecc-a26e-e831c4fda3c6" />
+
+#### Tarkistin, että löytyykö .git kansio.
+
+<img width="565" height="174" alt="image" src="https://github.com/user-attachments/assets/fb55a702-e9eb-4fb9-b90d-74e8c157b2dc" />
+
+#### Valmistelin tiedostot tallennusta varten, tein ensimmäisen commitin "Ansible rakenne" viestillä. Git loi tässä vaiheessa "root-commitin" (tunniste: c75f065), joka tallensi Ansiblen perusrakenteen versionhallinnan piiriin.
+
+<img width="775" height="169" alt="image" src="https://github.com/user-attachments/assets/01ea7068-0f9d-433c-9894-392ace0ff397" />
+
+#### Luoin gitanbile kansion ja sinne uuden playbookin git-ansible.yml:
+
+<img width="665" height="176" alt="image" src="https://github.com/user-attachments/assets/bfa8077d-781f-4504-bacf-b097c4808e46" />
+
+#### Ajoin git-ansible.yml playbook:in, ajo onnistui:
+
+<img width="1250" height="311" alt="image" src="https://github.com/user-attachments/assets/1144b409-8d40-4d6b-b6f5-8b5c1f2789e6" />
+
+#### Tallensin testatun ja toimivan muutoksen Gittiin. Git commit tallensi uuden tilannekuvan (tunniste 702d449), jossa näkyy yksi muutettu tiedosto ja kahdeksan uutta riviä.
+
+<img width="932" height="96" alt="image" src="https://github.com/user-attachments/assets/04528d82-7607-4467-8fa5-8fd3ca785661" />
+
+#### Ansible kansion git log muutoksien jälkeen:
+
+<img width="678" height="253" alt="image" src="https://github.com/user-attachments/assets/eb6c22c1-e9d8-41cf-a545-4f2b9b9a3c89" />
 
 
+## g) Se toinen järjestelmä: Windows
 
 
 
 ## Lähteet: 
+
+karvinen 2026 Palvelinten Hallinta: https://terokarvinen.com/palvelinten-hallinta/ 
 
 Chacon and Straub 2014:
 
