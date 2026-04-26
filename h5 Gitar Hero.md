@@ -147,6 +147,7 @@ Lopuksi paikalliset tallennukset lähetetään takaisin GitHubiin.
 
 ## h) Varaston oikeuksien jakaminen
 
+<img width="646" height="190" alt="image" src="https://github.com/user-attachments/assets/035efcc3-12d3-4315-b982-f79490d24e4a" />
 
 
 ## Lähteet: 
