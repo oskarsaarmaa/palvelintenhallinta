@@ -8,8 +8,22 @@
 
 ### Salasanaton sudo Ansiblella
 * Salasanaton kirjautuminen mahdollistaa satojen koneiden ylläpidon ilman manuaalista salasanojen syöttelyä.
-*
+
 ### ansible-doc
+ansible-doc copy
+* Kopioi tiedostoja paikalliselta tai etäkoneelta kohdekoneelle.
+
+ansible-doc apt
+* Hallitsee apt-paketteja Debian/Ubuntu pohjaisille järjestelmille.
+
+ansible-doc file
+* Hallitsee tiedostojen, hakemistojen ja symlinkkien ominaisuuksia.
+
+ansible-doc user
+* Hallitsee käyttäjätilejä ja niiden ominaisuuksia.
+
+ansible-doc authorized_key
+* Lisää tai poistaa SSH-julkisia avaimia.
 
 ## a) Sudoless 
 Salasanaton kirjautuminen on automaatioon kätevä jos on kymmeniä käyttäjiä ja ylläpitäjä haluaa tehdä muutoksia ympäristölle hänen ei tarvii kirjoittaa monimutkaisia/pitkiä salasanoja yhä uudestaan.
