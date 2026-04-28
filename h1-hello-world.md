@@ -16,32 +16,66 @@ Osaako Ansible porrastaa järjestelmälle tehtyjen muutoksien vientiä SSH:n lä
 
 
 ## a) Ssh secrets
-Linux koneen asennus, päivitys ja peruskonffaus. OpenSSH:n asennus ja testaus. SSH avaimen generointi, pääsin kirjautumaan SSH ilman salasanaa. 
-<img width="955" height="118" alt="image" src="https://github.com/user-attachments/assets/7b70d2f2-de73-42f3-8c59-382223b9382c" />
+Linux koneen asennus, päivitys ja peruskonffaus. OpenSSH:n asennus ja testaus. 
 
-<img width="666" height="114" alt="image" src="https://github.com/user-attachments/assets/05e2ab17-b8f4-470c-b192-62aabe470f73" />
+<img width="819" height="195" alt="image" src="https://github.com/user-attachments/assets/9acc2596-9534-4904-b67a-9407bafba676" />
+
+
+SSH avaimen generointi, komennolla ssh-keygen:
+
+
+<img width="745" height="39" alt="image" src="https://github.com/user-attachments/assets/2639031e-b4fb-421e-803e-4f2896bdeadc" />
+
+
+<img width="1042" height="40" alt="image" src="https://github.com/user-attachments/assets/a7321373-f4a8-4abe-a40d-e8072f31e891" />
+
+Loin ryhmän sudoless ja lisäsäin 'antero' käyttäjän ryhmään komennoilla: sudo groupadd sudoless, sudo useradd antero: 
+
+<img width="842" height="37" alt="image" src="https://github.com/user-attachments/assets/ee090320-72a4-4021-9d04-cff1c4abf535" />
+
+
+
+
+Lisäsin main.yml tiedostoon säännöt, jossa: käyttäjät jotka kuuluvat ryhmään 'sudoless' pääsevät kirjautumaan salasanattomana järjestelmään.
+
+<img width="607" height="373" alt="image" src="https://github.com/user-attachments/assets/4eacec1b-6d5e-455f-a03b-1071d84e142b" />
+
+
+
+Kirjautuminen SSH:lle ilman salasanaa:
+
+<img width="1050" height="210" alt="image" src="https://github.com/user-attachments/assets/e6707e6b-9526-4070-929f-10b061666de6" />
+
+ 
 
 ## c) Hei Ansible
-Ansible ja Micro teksti editorin asennus. Ansible konfigurointiin tein kansioita ja tekstitiedostoja Micro:lla. Testasin Ansible uptime komennon avulla.
-<img width="708" height="58" alt="image" src="https://github.com/user-attachments/assets/c701326e-c57e-49c2-920f-3c5afc0fd6c3" />
 
-<img width="555" height="182" alt="image" src="https://github.com/user-attachments/assets/386c7a0e-4233-407d-9669-24ca6a93e926" />
+Loin YAML tiedoston 'hei_maailma.yml' määritin sinne säännön, jossa kun playbookin ajan Ansible tulostaa "Hei Maailma! Ansible toimii" tekstin:
 
-Loin kansiot ja tekstitiedostot: hosts.ini ansible.cfg ja site.yml määritin niihin säännöt jolla ansoble hello world toimii. 
+<img width="617" height="148" alt="image" src="https://github.com/user-attachments/assets/76de6716-ece7-48c4-b298-6d23e76c9866" />
 
-<img width="1178" height="63" alt="image" src="https://github.com/user-attachments/assets/6a0ada0a-d659-4b00-9d9e-96203d901fd6" />
+Ansible-playbook:in ajo:
 
-<img width="763" height="43" alt="image" src="https://github.com/user-attachments/assets/c1f2b97b-6fe4-48df-b18d-74e99d0ce502" />
+<img width="2025" height="540" alt="image" src="https://github.com/user-attachments/assets/149b2870-026e-402b-ae23-a4b3f18e538f" />
 
-<img width="855" height="75" alt="image" src="https://github.com/user-attachments/assets/b56c4325-5733-4120-9789-0d25ea9b935b" />
+* Ajo meni läpi ja tulosti just sen mitä sääntöihin määritin.
 
-Hakemistopuu:
-<img width="730" height="178" alt="image" src="https://github.com/user-attachments/assets/76f9d613-4c5b-49b6-8fa2-022aa0fe0c6e" />
 
-Lopputulos:
-<img width="1057" height="498" alt="image" src="https://github.com/user-attachments/assets/411f14df-ae39-4b2e-a46f-7f14e0698720" />
+## d) Bonus - Paketin asennus Ansiblella
 
-<img width="1142" height="30" alt="image" src="https://github.com/user-attachments/assets/8baf6a9c-491a-4132-b939-8bd2b4bd17b1" />
+Loin YAML tiedoston 'asennus.yml' määritin säännöksi, että Ansible asentaa komentoriviohjelman 'cowsay' ja päivittää pakettilistan.
+
+<img width="440" height="206" alt="image" src="https://github.com/user-attachments/assets/9092531c-7707-46f0-9c41-8946ff6af7d2" />
+
+Ensimmäinen playbookin ajo:
+
+<img width="1168" height="297" alt="image" src="https://github.com/user-attachments/assets/fe061a35-f8f2-44a6-bafb-9ae68687cef0" />
+
+Toinen playbookin ajo:
+
+<img width="1331" height="823" alt="image" src="https://github.com/user-attachments/assets/db86fa51-f31e-4138-aa18-78df7960bbb1" />
+
+* Ansible asensi cowsay:n onnistuneesti.
 
 
 ## Lähteet
