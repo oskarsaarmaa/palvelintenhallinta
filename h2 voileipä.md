@@ -1,4 +1,17 @@
-# Sudo ilman salasanaa - a)
+## x)
+### Salasanaton sudo
+* Käyttäjä, joka kuuluu ryhmään jossa ryhmän säännöissä sallitaan salasanaton kirajutuminen pystyy kirjautumaan salasanattomana järjestelmään.
+* Kätevä automaatiossa, mutta riskialtis, jos koneelle pääsee ulkopuolinen taho.
+
+### Munroe
+* Sarjakuva opettaa, että sudo on "taikasana" jolla saa linuxin tekemään mitä käyttäjä haluaa.
+
+### Salasanaton sudo Ansiblella
+* Salasanaton kirjautuminen mahdollistaa satojen koneiden ylläpidon ilman manuaalista salasanojen syöttelyä.
+*
+### ansible-doc
+
+## a) Sudoless 
 Salasanaton kirjautuminen on automaatioon kätevä jos on kymmeniä käyttäjiä ja ylläpitäjä haluaa tehdä muutoksia ympäristölle hänen ei tarvii kirjoittaa monimutkaisia/pitkiä salasanoja yhä uudestaan.
 Opin, että /etc/sudoers.d/ on se paikka mihin sääntöjä voidaan tehdä. 
 Tehtävää tehdessä ajattelin, että onko salasanattomana kirjautuminen turvallista ja normaali tapa työelämässä googlailin asiaa ja sain selville, että jos sääntö on tarkasti määretty oikealle ryhmälle sitten se on turvallista.
@@ -19,7 +32,7 @@ Pääsin kirjautumaan ilman salasanapyyntöä:
 <img width="551" height="65" alt="image" src="https://github.com/user-attachments/assets/1b3b42b9-1f8f-48d7-a183-3b09611421b7" />
 
 
-## Antero - b)
+## b) Antero 
 Tehtävässä tavoitteena oli automoida sudon käyttö ilman salasanaa ansiblen avulla.
 
 Ansible hakemistopuu:
@@ -49,7 +62,7 @@ Salasanaton SSH kirjautuminen:
 <img width="1165" height="215" alt="image" src="https://github.com/user-attachments/assets/b7cc949f-769f-4020-b4a5-ae8f03e6265e" />
 
 
-### Paketti - c)
+## c) Paketti 
 Asensin orjakoneelle kaksi hyödyllistä työkalua: git-versionhallinnan ja htop-prosessinhallinnan. 
 main.yml-tekstitiedostoon määritin nämä asennukset käyttämällä Ansiblen apt-moduulia. Asetin tehtävään update_cache: yes, mikä vastaa Linuxin sudo apt update -komentoa.
 
@@ -62,7 +75,7 @@ Kokeilin löytyykö git ja htop ohjelmat ansiblen polusta:
 
 
 
-#### Tiedosto - d)
+## d) Tiedosto 
 Loin tiedoston nimeltä leipä.txt antero-käyttäjän kotihakemistoon.
 
 
@@ -81,7 +94,7 @@ Leipä.txt:
 <img width="494" height="95" alt="image" src="https://github.com/user-attachments/assets/b9333df8-6fdd-44c3-8b0d-b1277430e8e1" />
 
 
-##### Debug moduuli ja dynaamiset muuttujat - e)
+## Debug moduuli ja dynaamiset muuttujat - e)
 Valtsin  työkaluksi debug-moduulin ja Ansiblen automaattisesti keräämät faktat kyseisestä playbookista. main.yml-tekstitiedostoon määritin tehtävän, joka tulostaa ruudulle orjakoneen käyttöjärjestelmän ja IP-osoitteen käyttämällä muuttujia. 
 Tämä oli mielestäni siistiä, sillä se osoittaa, miten Ansible "tuntee" hallitsemansa koneet ilman, että minun tarvitsee syöttää tietoja käsin.
 
@@ -95,7 +108,7 @@ Testasin pyörittämällä playbookin:
 
 
   
-###### Lähteet
+## Lähteet
 
 Karvinen 2026: Palvelinten hallinta https://terokarvinen.com/palvelinten-hallinta/
 
