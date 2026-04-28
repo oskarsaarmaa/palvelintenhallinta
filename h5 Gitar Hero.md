@@ -147,7 +147,15 @@ Lopuksi paikalliset tallennukset lähetetään takaisin GitHubiin.
 
 ## h) Varaston oikeuksien jakaminen
 
+Lisäsin parini varastoon 'projekti' 
 <img width="646" height="190" alt="image" src="https://github.com/user-attachments/assets/035efcc3-12d3-4315-b982-f79490d24e4a" />
+
+Pull
+<img width="695" height="339" alt="image" src="https://github.com/user-attachments/assets/0c8359c3-7360-45ac-95dc-228bbbf3210b" />
+
+Logi muutoksista:
+<img width="567" height="641" alt="image" src="https://github.com/user-attachments/assets/0cff064b-4a52-42f9-a9e4-27b5e0975a58" />
+
 
 
 ## Lähteet: 
