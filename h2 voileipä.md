@@ -120,7 +120,6 @@ Testasin pyörittämällä playbookin:
 
 <img width="1257" height="157" alt="image" src="https://github.com/user-attachments/assets/41a3e611-cd31-4471-8098-be7b402ef6a4" />
 
-
   
 ## Lähteet
 
