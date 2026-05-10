@@ -113,6 +113,55 @@ Lopputulos:
 Varmistin automaation onnistumisen kirjautumalla sisään antero-käyttäjänä ja muokkaamalla index.html-tiedostoa. Muutos päivittyi selaimelle, muutoksen yhteydessä kone ei pyytänyt salasanaa.
 
 
+#### d)  Osiris-T
+Täytyin määrittää sudo oikeudet käyttäjälle osirisT:
+
+```bash
+su 
+sudo adduser osiristt sudo
+reboot
+
+```
+
+Kloonasin varaston ja ajoin skriptin:
+```bash
+git clone https://github.com/oskarihakamies/IDS-project.git
+cd soc-project
+sudo bash install.sh
+```
+
+Asennus skripti ajettuna navigoin localhostiin ja kirjauduin Wazuh portaaliin admin - admin tunnuksilla. Wazuh portaali:
+
+<img width="1275" height="616" alt="image" src="https://github.com/user-attachments/assets/291c368e-48a2-459b-8d79-308ac4b859ff" />
+
+
+Latasin pcap tiedoston:
+```bash
+wget https://github.com/markofu/pcaps/raw/master/PracticalPacketAnalysis/ppa-capture-files/portscan.pcap
+
+```
+
+<img width="1283" height="295" alt="image" src="https://github.com/user-attachments/assets/02ada995-a896-4790-a6f7-779c31608f6b" />
+
+Hyökkäyssimulaatio tcpreplay:n avulla:
+```bash
+sudo tcpreplay --intf1=enp0s3 portscan.pcap
+```
+<img width="700" height="212" alt="image" src="https://github.com/user-attachments/assets/84ade2ca-aea9-4a58-9364-05a2cba14420" />
+
+- Syötin liikennettä livenä järjestelmään havaintojen generoimiseksi.
+
+
+Tarkisitn Wazuh portaalin ilmoitukset:
+
+<img width="845" height="237" alt="image" src="https://github.com/user-attachments/assets/a8ca2396-455d-4a44-a861-d19a061cf37f" />
+
+- Wazuh Dashboard rekisteröi hyökkäyksen onnistuneesti (Medium severity alerts nousivat 207 -> 208 ja Low severity 119 -> 123).
+- Järjestelmä tunnistaa porttiskannauksen ja raportoi siitä reaaliajassa
+
+
+
+
 
 ##### Lähteet:
 
@@ -124,4 +173,6 @@ Ansible Community Documentation 2026: https://docs.ansible.com/projects/ansible/
 
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
-
+OsirisT:
+https://github.com/oskarihakamies/IDS-project
+https://github.com/oskarihakamies/IDS-project/blob/main/How-To-Install.md
