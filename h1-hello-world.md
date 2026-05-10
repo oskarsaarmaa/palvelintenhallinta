@@ -16,35 +16,54 @@ Osaako Ansible porrastaa järjestelmälle tehtyjen muutoksien vientiä SSH:n lä
 
 
 ## a) Ssh secrets
-Linux koneen asennus, päivitys ja peruskonffaus. OpenSSH:n asennus ja testaus. 
-
+### Linux koneen asennus, päivitys ja peruskonffaus. OpenSSH:n asennus ja testaus. 
+```bash
+sudo apt-get update
+sudo apt-get install openssh-server -y
+```
 <img width="819" height="195" alt="image" src="https://github.com/user-attachments/assets/9acc2596-9534-4904-b67a-9407bafba676" />
 
+### Kirjautuminen SSH:lle:
+```bash
+ssh localhost
+```
+<img width="1050" height="210" alt="image" src="https://github.com/user-attachments/assets/e6707e6b-9526-4070-929f-10b061666de6" />
 
-SSH avaimen generointi, komennolla ssh-keygen:
 
+## b) Pubkey
+Loin SSH-avainparin: 
+```bash
+ssh-keygen
+enter
+enter
+enter
+```
 
 <img width="745" height="39" alt="image" src="https://github.com/user-attachments/assets/2639031e-b4fb-421e-803e-4f2896bdeadc" />
 
 
 <img width="1042" height="40" alt="image" src="https://github.com/user-attachments/assets/a7321373-f4a8-4abe-a40d-e8072f31e891" />
 
-Loin ryhmän sudoless ja lisäsäin 'antero' käyttäjän ryhmään komennoilla: sudo groupadd sudoless, sudo useradd antero: 
+- Loin ryhmän sudoless ja lisäsäin 'antero' käyttäjän ryhmään komennoilla: sudo groupadd sudoless, sudo useradd antero: 
 
 <img width="842" height="37" alt="image" src="https://github.com/user-attachments/assets/ee090320-72a4-4021-9d04-cff1c4abf535" />
 
+### Kirjautuminen SSH:lle ilman salasanaa:
+```bash
+ssh localhost
+```
+<img width="1050" height="210" alt="image" src="https://github.com/user-attachments/assets/e6707e6b-9526-4070-929f-10b061666de6" />
 
 
 
-Lisäsin main.yml tiedostoon säännöt, jossa: käyttäjät jotka kuuluvat ryhmään 'sudoless' pääsevät kirjautumaan salasanattomana järjestelmään.
+
+
+- Lisäsin main.yml tiedostoon säännöt, jossa: käyttäjät jotka kuuluvat ryhmään 'sudoless' pääsevät kirjautumaan salasanattomana järjestelmään.
 
 <img width="607" height="373" alt="image" src="https://github.com/user-attachments/assets/4eacec1b-6d5e-455f-a03b-1071d84e142b" />
 
 
 
-Kirjautuminen SSH:lle ilman salasanaa:
-
-<img width="1050" height="210" alt="image" src="https://github.com/user-attachments/assets/e6707e6b-9526-4070-929f-10b061666de6" />
 
  
 
@@ -55,7 +74,10 @@ Loin YAML tiedoston 'hei_maailma.yml' määritin sinne säännön, jossa kun pla
 <img width="617" height="148" alt="image" src="https://github.com/user-attachments/assets/76de6716-ece7-48c4-b298-6d23e76c9866" />
 
 Ansible-playbook:in ajo:
-
+```bash
+ansible-playbook hei_maailma.yml
+```
+- Käy
 <img width="2025" height="540" alt="image" src="https://github.com/user-attachments/assets/149b2870-026e-402b-ae23-a4b3f18e538f" />
 
 * Ajo meni läpi ja tulosti just sen mitä sääntöihin määritin.
